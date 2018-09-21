@@ -3,6 +3,7 @@ const express = require('express');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
 const bodyParser = require('body-parser');
+const path =  require('path');
 
 const { User } = require('./models/user');
 require('./services/passport');
@@ -30,12 +31,11 @@ if (process.env.NODE_ENV === 'production') {
 
 	const path = require('path');
 	app.get('*', (req, res) => {
-		res.sendFile(path.resolve('./../client', 'build', 'index.html'));
+		res.sendFile(path.resolve(__dirname, '../client', 'build', 'index.html'));
 		// console.log(path.join(__dirname, './../client', 'build', 'index.html'));
 	});
 } 
-
-
+//console.log(path.join('client', 'build', 'static'));
 app.listen(PORT, () => {
 	console.log('App is running on 3000');
 });
