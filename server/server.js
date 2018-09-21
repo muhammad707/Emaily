@@ -30,9 +30,12 @@ if (process.env.NODE_ENV === 'production') {
 
 	const path = require('path');
 	app.get('*', (req, res) => {
-		res.sendFile(__dirname, './../client', 'build', 'index.html');
+		res.sendFile(path.resolve(__dirname, './../client', 'build', 'index.html'));
+		// console.log(path.join(__dirname, './../client', 'build', 'index.html'));
 	});
 } 
+
+
 app.listen(PORT, () => {
 	console.log('App is running on 3000');
 });
