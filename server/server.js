@@ -21,7 +21,7 @@ app.use(passport.initialize());
 app.use(passport.session()); 
 
 // middleware to authenticate user with google account
-app.use(mainRoutes);
+// app.use(mainRoutes);
 app.use(authRoutes);
 app.use(billingRoutes);
 
@@ -30,7 +30,7 @@ if (process.env.NODE_ENV === 'production') {
 
 	const path = require('path');
 	app.get('*', (req, res) => {
-		res.sendFile(path.resolve(__dirname, './../client', 'build', 'index.html'));
+		res.sendFile(path.resolve('./../client', 'build', 'index.html'));
 		// console.log(path.join(__dirname, './../client', 'build', 'index.html'));
 	});
 } 
